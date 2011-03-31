@@ -4,15 +4,13 @@
 The HTTP Spec and Symfony2 Fundamentals
 =======================================
 
-To go far with Symfony2, we'll start first by discussing the Hypertext Transfer
-Protocol (HTTP) - the refreshingly simple message format used by all clients
-(e.g. web browsers) and servers when communicating with each other.
-This is important because, as we'll discover, Symfony2 has been tirelessly
-architected at its core to use HTTP - not reinvent it. The end product
-is a framework that, unlike many others, is an abstraction around the proven
-fundamental rules of the World Wide Web. Whether you realize it or not,
-HTTP is something you use everyday. With Symfony2, you'll learn how to
-leverage and master it.
+Para no adentrarnos mucho en Symfony2, iniciaremos discutiendo el  Protocolo de Transferencia de Hipertexto
+(HTTP) - el formato de un simple mensaje de actualizacion que es usado por todos los clientes (ejemplo los navegadores web)
+y los servidores cuando se comunican unos con otros.
+Esto es importante porque, como descubiremos mas adelante, Symfony2 has sido disenado enteramente para usar HTTP - no lo reinventamos. El producto final es un framework que, a diferencia de muchos otros, 
+es una abstracion de los principios funtamentales de la World Wide Web. 
+Ya sea que te des cuenta o no, el Protocolo de Hipertexto (HTTP) es algo que usamos a diario.
+Con Symfony2, aprenderemos a aprovecharlo y  dominarlo.
 
 .. index::
    single: HTTP; Request-response paradigm
