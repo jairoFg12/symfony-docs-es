@@ -1,11 +1,11 @@
-The View
+La Vista
 ========
 
-After reading the first part of this tutorial, you have decided that Symfony2
-was worth another 10 minutes. Good for you. In this second part, you will
-learn more about the Symfony2 template engine, `Twig`_. Twig is a flexible,
-fast, and secure template engine for PHP. It makes your templates more
-readable and concise; it also makes them more friendly for web designers.
+Después de ver la primera parte del tutorial, has decidido que vale la pena 
+otros 10 minutos con Symfony2. Excelente. En esta segunda parte, aprenderás 
+mas sobre el motor de plantillas de Symfony2, `Twig`_. Twig es un flexible, 
+rápido y seguro motor de plantillas para PHP que hace a tus plantillas más 
+legibles y concisas, haciéndolas también más amigables para los diseñadores web.
 
 .. note::
 
