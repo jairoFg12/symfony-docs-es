@@ -1,15 +1,15 @@
 .. index::
    single: Symfony2 Fundamentals
 
-The HTTP Spec and Symfony2 Fundamentals
-=======================================
+Las Especificaciones de HTTP y los Fundamentos de Symfony2
+==========================================================
 
 Para no adentrarnos mucho en Symfony2, iniciaremos discutiendo el  Protocolo de Transferencia de Hipertexto
 (HTTP) - el formato de un simple mensaje de actualizacion que es usado por todos los clientes (ejemplo los navegadores web)
 y los servidores cuando se comunican unos con otros.
 Esto es importante porque, como descubiremos mas adelante, Symfony2 has sido disenado enteramente para usar HTTP - no lo reinventamos. El producto final es un framework que, a diferencia de muchos otros, 
 es una abstracion de los principios funtamentales de la World Wide Web. 
-Ya sea que te des cuenta o no, el Protocolo de Hipertexto (HTTP) es algo que usamos a diario.
+Ya sea que nos demos cuenta o no, el Protocolo de Hipertexto (HTTP) es algo que usamos a diario.
 Con Symfony2, aprenderemos a aprovecharlo y  dominarlo.
 
 .. index::
