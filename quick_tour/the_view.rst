@@ -9,32 +9,31 @@ legibles y concisas, haciéndolas también más amigables para los diseñadores 
 
 .. note::
 
-    Instead of Twig, you can also use :doc:`PHP </cookbook/templating/PHP>`
-    for your templates. Both template engines are supported by Symfony2 and
-    have the same level of support.
+    En la lugar de Tiwig, también puedes usar :doc:`PHP </cookbook/templating/PHP>` 
+    para tus plantillas. Ambos motores son soportados por Symfony2 y tienen el 
+    mismo nivel de soporte.
 
 .. index::
    single: Twig
    single: View; Twig
 
-Twig, a Quick Overview
+Twig, un vistazo rápido
 ----------------------
 
 .. tip::
 
-    If you want to learn Twig, we highly recommend you to read its official
-    `documentation`_. This section is just a quick overview of the main
-    concepts.
+    Si quieres aprender a usar Twig, recomendamos ampliamente leer su 
+    `documentación`_ oficial. Esta sección es solo una vista general de los conceptos 
+    principales.
 
-A Twig template is a text file that can generate any text-based format (HTML,
-XML, CSV, LaTeX, ...). Twig defines two kinds of delimiters:
+Una plantilla Twig es un archivo de texto que puede generar cualquier formato 
+basado en texto (HTML, XML, CSV, LaTeX, ...). Existen dos tipos de delimitadores:
 
-* ``{{ ... }}``: Outputs a variable or the result of an expression;
+* ``{{ ... }}``: Imprime una variable o el resultado de una expresión;
 
-* ``{% ... %}``: A tag that controls the logic of the template; it is used to
-  execute ``for`` loops or ``if`` statements for instance.
+* ``{% ... %}``: Controla la logica de la plantilla; es usado para ejecutar ciclos o sentencias condicionales.
 
-Below is a minimal template that illustrates a few basics:
+Abajo puedes encontrar una plantilla bien simple para mostrar las características básicas:
 
 .. code-block:: html+jinja
 
@@ -54,9 +53,9 @@ Below is a minimal template that illustrates a few basics:
         </body>
     </html>
 
-Variables passed to a template can be strings, arrays, or even objects. Twig
-abstracts the difference between them and let's you access "attributes" of a
-variable with the dot (``.``) notation:
+Las variables pasadas a la plantilla pueden ser cadenas, matrices o incluso 
+objetos. Twig abstrae las diferencias entre ellos y permite acceder a "atributos" 
+de una variable por medio del operador punto (``.``):
 
 .. code-block:: jinja
 
@@ -82,9 +81,9 @@ variable with the dot (``.``) notation:
 
 .. note::
 
-    It's important to know that the curly braces are not part of the variable
-    but the print statement. If you access variables inside tags don't put the
-    braces around.
+    Es importante notar que las llaves no forman parte de la variable sino de 
+    la impresión de la misma. Si necesitas acceder a variables dentro de 
+    etiquetas, no uses las llaves.
 
 Decorating Templates
 --------------------
