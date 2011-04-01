@@ -44,7 +44,7 @@ interactuar con el recurso:
 * *PUT*  Actualiza un recurso en el servidor;
 * *DELETE* Eimina el recurso del servidor.
 
-Con esto es mente, te podias imaginar que una solicitud HTTP para eliminar una entrada especifica de un blog
+Con esto es mente, te podrias imaginar que una solicitud HTTP para eliminar una entrada especifica de un blog
 luciria de la siguiente manera:
 
 .. code-block:: text
@@ -68,7 +68,7 @@ El Servidor devuelve una Respuesta
 ----------------------------------
 
 Luego de que el servidor ha leido la solicitud HTTP del cliente, este conoce exactamente cual recurso el cliente
-ha identificado (la URI)  y lo que el cliente desea hacer hacer con el recurso (metodo HTTP). En el caso, de una
+ha identificado (la URI)  y lo que el cliente desea hacer hacer con el mismo (metodo HTTP). En el caso, de una
 solicitud GET, el servidor prepara el recurso y lo devuelve como una respuesta HTTP:
 
 .. code-block:: text
@@ -82,27 +82,27 @@ solicitud GET, el servidor prepara el recurso y lo devuelve como una respuesta H
 
     <html><body>Hello Symfony2 World!</body></html>
 
-The HTTP response returned by the server to the client contains not only
-the requested resource (the HTML content in this case), but also other information
-about the response. Like the HTTP request, the first line of the response
-is especially important and contains the HTTP response status code (200 in
-this case). The status code is extremely important and communicates the overall
-outcome of the request back to the client. Different status codes exist for
-successful requests, failed requests, and requests that require action from
-the client (e.g. a redirect). A full list can be found on Wikipedia's
-`List of HTTP status codes`_ article.
+La respuesta HTTP devuelta por el servidor a el ciente no contiene solo
+el recurso solicitado (el cotenido HTML en este caso), sino que ademas contiene informacion adicional
+relacionada con el recurso. Como la solicitud HTTP, la primera linea de la respuesta
+es la mas importante y contiene un codigo relacionado con el estatus de la respuesta HTTP (200 en
+este caso). El codigo de estatus es muy importante ya que  informa al cliente el resultado de su 
+solicitud. Existen diferentes codigos de estatus HTTP para informar de las solicitudes exitosas, fallidas, 
+y ademas de las solicitudes que requieren intervencion por parte del cliente (ejemplo: una redireccion).
+Una lista completa de estos codigos de estatus puedes encontrarlo en el articulo de Wikipedia 
+`List of HTTP status codes`.
 
-Also like the request, an HTTP response message may contain additional pieces
-of information. These are known as HTTP headers and sit between the first line
-(the status code) and the response content.
+Como la solicitud, un mensaje de respuesta HTTP podria contener puiezas adicionales
+de informacion. Estos son conocidos como cabeceras HTTP y se encuentran ubicadas entre la primera linea
+(el codigo de estatus) y el contenido de la respuesta.
 
-One important HTTP response header is the ``Content-Type``. The body of the
-same resource may be returned in multiple different formats including HTML,
-XML, or JSON to name a few. The ``Content-Type`` header tells the client
-which format is being returned.
+Una de las cabeceras de respuesta HTTP mas importante es la de ``Content-Type``. El cuerpo del 
+recurso puede ser devuelto en multiples y diferentes formatos incluyendo HTML,
+XML, or JSON por nombrar algunos. La cabecera ``Content-Type`` le indica al cliente el formato en el
+que sera devuelta la respuesta.
 
-As we'll find out, many other headers exist. Many are very powerful and can
-be used, for example, to manage a powerful caching system.
+Como ya visto, existen otras cabeceras. Muchas de ellas son realmente funcionales y pueden
+ser usadas, por ejemplo, para manejar/contruir y poderoso sistema de cache.
 
 HTTP and Client-Server Communication
 ------------------------------------
