@@ -194,7 +194,7 @@ plantilla ``index``, puedes usar la etiqueta ``render``:
 
 La cadena ``HelloBundle:Hello:fancy`` hace referencia a la acción ``fancy``
 del controlador ``Hello``, y simulamos el envío de los parámetros por medio
-del argumento.
+del argumento::
 
     // src/Sensio/HelloBundle/Controller/HelloController.php
 
