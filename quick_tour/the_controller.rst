@@ -1,21 +1,19 @@
 El Controlador
 ==============
 
-Todavía con nosotros después de las primeras dos partes ? Ya te estás
-convirtiendo un adicto a Symfony2. Sin más, descubramos lo que los
-controladores pueden hacer por tí. 
+¿ Aún con nosotros después de las primeras dos partes ? Ya te estás 
+volviendo un adicto a Symfony2. Sin más preámbulos, descubramos lo que
+los controladores pueden hacer por tí. 
 
-Uso de formatos
----------------
+Uso de formatos de salida
+--------------------------
 
-En la actualidad, una aplicación web debería estar en capacidad de enviar
-más que sólo páginas HTML. 
-
-Nowadays, a web application should be able to deliver more than just HTML
-pages. From XML for RSS feeds or Web Services, to JSON for Ajax requests,
-there are plenty of different formats to choose from. Supporting those formats
-in Symfony2 is straightforward. Tweak the route by adding a default value of
-``xml`` for the ``_format`` variable::
+En la actualidad, una aplicación web debería estar en capacidad de
+generar respuestas no sólo como páginas HTML. Desde XML para fuentes RSS o
+servicios Web, hasta JSON para peticiones AJAX, hay variedad de formatos de
+donde escoger. El soporte para estos formatos en Symfony2 es realmente
+sencillo. Se debe ajustar la ruta añadiendo un valor por omisión como
+``xml`` para la variable ``_format``::  
 
     // src/Acme/DemoBundle/Controller/DemoController.php
     /**
@@ -27,8 +25,9 @@ in Symfony2 is straightforward. Tweak the route by adding a default value of
         return array('name' => $name);
     }
 
-According to the request format (as defined by the ``_format`` value),
-Symfony2 automatically selects the right template, here ``hello.xml.twig``:
+De acuerdo al formato de respuesta (definido por el valor de ``_format``)
+Symfony2 selecciona automáticamente la plantilla correcta, en este caso 
+``hello.xml.twig``:
 
 .. code-block:: xml+php
 
@@ -37,10 +36,10 @@ Symfony2 automatically selects the right template, here ``hello.xml.twig``:
         <name>{{ name }}</name>
     </hello>
 
-That's all there is to it. For standard formats, Symfony2 will also
-automatically choose the best ``Content-Type`` header for the response. If you
-want to support different formats for a single action, use the ``{_format}``
-placeholder in the route pattern instead::
+Es todo lo que hay que hacer. Para formatos estándar, Symfony2 también 
+selecciona la cabecera ``Content-Type`` adecuada para la respuesta. Si quieres
+soportar diferentes formatos para una sola acción, usa el marcador de posición
+``{_format}`` en el patrón que define la ruta::
 
     // src/Acme/DemoBundle/Controller/DemoController.php
     /**
@@ -52,21 +51,23 @@ placeholder in the route pattern instead::
         return array('name' => $name);
     }
 
-The controller will now be called for URLs like ``/demo/hello/Fabien.xml`` or
+El controlador será llamado por urls como: ``/demo/hello/Fabien.xml`` o
 ``/demo/hello/Fabien.json``.
 
-The ``requirements`` entry defines regular expressions that placeholders must
-match. In this example, if you try to request the ``/demo/hello/Fabien.js``
-resource, you will get a 404 HTTP error, as it does not match the ``_format``
-requirement.
+El parámetro ``requirements`` define una expresión regular que el marcador
+de posición debe cumplir. En este caso, si intentas hacer una petición al
+recurso ``/demo/hello/Fabien.js``, obtendrás un error de tipo 404, debido 
+a que no se cumple la expresión establecida en ``_format``. 
 
-Redirecting and Forwarding
---------------------------
+Redirección y reenvío
+----------------------
 
-If you want to redirect the user to another page, use the ``RedirectResponse``
-class::
+Si quieres redirigir al usuario a otra página, usa la clase ``RedirectResponse``::
 
     return new RedirectResponse($this->generateUrl('_demo_hello', array('name' => 'Lucas')));
+
+El método ``generateUrl`` es el mismo método que la función ``path()`` que usamos
+en las plantillas. 
 
 The ``generateUrl()`` is the same method as the ``path()`` function we used in
 templates. It takes the route name and an array of parameters as arguments and
@@ -76,7 +77,7 @@ You can also easily forward the action to another one with the ``forward()``
 method. As for the ``actions`` helper, it makes an internal sub-request, but
 it returns the ``Response`` object to allow for further modification::
 
-    $response = $this->forward('AcmeDemoBundle:Hello:fancy', array('name' => $name, 'color' => 'green'));
+    $response = $this->forward('AcmeDemo:Hello:fancy', array('name' => $name, 'color' => 'green'));
 
     // do something with the response or return it directly
 
