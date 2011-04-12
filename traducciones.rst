@@ -103,7 +103,7 @@ book/validator/constraints/Valid.rst
 book/validator/index.rst
 book/validator/overview.rst
 book/validator/validation.rst
-contributing/code/bugs.rst
+contributing/code/bugs.rst                       sergiovier        12/04/2011          0%
 contributing/code/conventions.rst
 contributing/code/index.rst
 contributing/code/license.rst
