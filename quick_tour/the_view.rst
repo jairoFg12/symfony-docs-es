@@ -1,8 +1,8 @@
 La Vista
 ========
 
-Después de ver la primera parte del tutorial, has decidido que vale la pena 
-otros 10 minutos con Symfony2. Excelente. En esta segunda parte, aprenderás 
+Después de ver la primera parte de este tutorial, has decidido que vale la pena 
+otros 10 minutos con Symfony2. ¡Excelente!. En esta segunda parte, aprenderás 
 más sobre el motor de plantillas de Symfony2, `Twig`_. Twig es un flexible, 
 rápido y seguro motor de plantillas para PHP que hace a tus plantillas más 
 legibles y concisas, haciéndolas también más amigables para los diseñadores web.
@@ -13,17 +13,13 @@ legibles y concisas, haciéndolas también más amigables para los diseñadores 
     para tus plantillas. Ambos motores son soportados por Symfony2 y tienen el 
     mismo nivel de soporte.
 
-.. index::
-   single: Twig
-   single: View; Twig
-
-Twig, un vistazo rápido
+Un vistazo rápido a Twig
 ----------------------
 
 .. tip::
 
-    Si quieres aprender a usar Twig, recomendamos ampliamente leer su 
-    `documentación`_ oficial. Esta sección es solo una vista general de los conceptos 
+    Si quieres aprender a usar Twig, recomendamos leer su 
+    `documentation`_ oficial. Esta sección es solo una vista general de los conceptos 
     principales.
 
 Una plantilla Twig es un archivo de texto que puede generar cualquier formato 
@@ -31,7 +27,7 @@ basado en texto (HTML, XML, CSV, LaTeX, ...). Existen dos tipos de delimitadores
 
 * ``{{ ... }}``: Imprime una variable o el resultado de una expresión;
 
-* ``{% ... %}``: Controla la logica de la plantilla; es usado para ejecutar ciclos de tipo ``for`` o sentencias condicionales como el ``if``.
+* ``{% ... %}``: Controla la lógica de la plantilla; es usado para ejecutar ciclos de tipo ``for`` o sentencias condicionales como el ``if``.
 
 Abajo puedes encontrar una plantilla bien simple para mostrar las características básicas:
 
@@ -52,6 +48,18 @@ Abajo puedes encontrar una plantilla bien simple para mostrar las característic
             </ul>
         </body>
     </html>
+
+
+.. tip::
+
+   Se pueden comentarios dentro de las plantillas usando los delimitadores ``{# ... #}``.
+
+Para mostrar una plantilla, puedes usar el método ``render`` desde dentro del controlador
+y pasarle las variables necesarios para la plantilla::
+
+    $this->render('AcmeDemoBundle:Demo:hello.html.twig', array(
+        'name' => $name,
+    ));
 
 Las variables pasadas a la plantilla pueden ser cadenas, matrices o incluso 
 objetos. Twig abstrae las diferencias entre ellos y permite acceder a "atributos" 
@@ -95,30 +103,33 @@ funciona de la misma manera que las clases PHP: La herencia de plantillas permit
 construir una plantilla base denominada "layout" que contiene todos los elementos 
 comunes del sitio y que define bloques para que los hijos los puedan sobrescribir.
 
-La plantilla ``index.html.twig`` hereda de ``layout.html.twig`` gracias a la etiqueta ``extends``:
+La plantilla ``hello.html.twig`` hereda de ``layout.html.twig`` gracias a la etiqueta ``extends``:
 
-.. code-block:: jinja
+.. code-block:: html+jinja
 
-    {# src/Sensio/HelloBundle/Resources/views/Hello/index.html.twig #}
-    {% extends "HelloBundle::layout.html.twig" %}
+    {# src/Acme/DemoBundle/Resources/views/Demo/hello.html.twig #}
+    {% extends "AcmeDemoBundle::layout.html.twig" %}
+
+    {% block title "Hello " ~ name %}
 
     {% block content %}
-        Hello {{ name }}!
+        <h1>Hello {{ name }}!</h1>
     {% endblock %}
 
-La notación ``HelloBundle::layout.html.twig`` suena familiar cierto? Es la misma 
+La notación ``AcmeDemoBundle::layout.html.twig`` suena familiar cierto? Es la misma 
 notación utilizada para referenciar plantillas regulares. Los ``::`` significan que 
 el elemento controlador esta vacío, por lo que el archivo correspondiente se 
 encuentra almacenado dentro de ``views/``.
 
-Demos un vistazo a la plantilla simplificada ``layout.html.twig``:
+Demos una mirada a nuestro layout ``layout.html.twig``:
 
 .. code-block:: jinja
 
+    {# src/Acme/DemoBundle/Resources/views/layout.html.twig #}
     {% extends "::base.html.twig" %}
 
     {% block body %}
-        <h1>Hello Application</h1>
+        <h1>Demo Bundle</h1>
 
         {% block content %}{% endblock %}
     {% endblock %}
@@ -126,22 +137,25 @@ Demos un vistazo a la plantilla simplificada ``layout.html.twig``:
 La etiqueta ``{% block %}`` define dos bloques(``body`` y ``content``) para que los hijos 
 lo puedan sobrescribir. Todo lo que hace esta etiqueta de tipo bloque es decirle al motor 
 de plantillas que un hijo puede sobrescribir esa sección. La plantilla 
-``index.html.twig`` sobrescribe el bloque con nombre ``content``. El otro está definido en 
-una plantilla base ya que la propia plantilla se encuentra decorada por otra.. Cuando la parte 
+``hello.html.twig`` sobrescribe el bloque con nombre ``content``. El otro está definido en 
+el layout ya que la propia plantilla se encuentra decorada por otra.. Cuando la parte 
 del bundle del nombre del template está vacía (``::base.html.twig``), las vistas son buscadas 
-dentro de la carpeta ``app/views/``. Esta carpeta almacena vistas globales para el proyecto completo.
+dentro de la carpeta ``app/Resources/``. Esta carpeta almacena vistas globales para el proyecto completo.
 
 .. code-block:: jinja
 
-    {# app/views/base.html.twig #}
+    {# app/Resources/views/base.html.twig #}
     <!DOCTYPE html>
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <title>{% block title %}Hello Application{% endblock %}</title>
+            <title>{% block title %}Welcome!{% endblock %}</title>
+            {% block stylesheets %}{% endblock %}
+            <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
         </head>
         <body>
-            {% block body '' %}
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
         </body>
     </html>
 
@@ -158,54 +172,55 @@ Incluir otros templates
 La mejor forma de compartir un fragmento de código entre varias plantillas 
 diferentes es definir una plantilla que luego pueda ser incluida dentro de otra.
 
-Crea una plantilla con el nombre ``hello.html.twig``:
+Crea una plantilla con el nombre ``embedded.html.twig``:
 
 .. code-block:: jinja
 
-    {# src/Sensio/HelloBundle/Resources/views/Hello/hello.html.twig #}
+    {# src/Acme/DemoBundle/Resources/views/Demo/embedded.html.twig #}
     Hello {{ name }}
 
-Y cambia la plantilla ``index.html.twig`` para que la incluya:
+And change the ``index.html.twig`` template to include it:
 
 .. code-block:: jinja
 
-    {# src/Sensio/HelloBundle/Resources/views/Hello/index.html.twig #}
-    {% extends "HelloBundle::layout.html.twig" %}
+    {# src/Acme/DemoBundle/Resources/views/Demo/hello.html.twig #}
+    {% extends "AcmeDemoBundle::layout.html.twig" %}
 
-    {# override the body block from index.html.twig #}
+    {# override the body block from embedded.html.twig #}
     {% block body %}
-        {% include "HelloBundle:Hello:hello.html.twig" %}
+        {% include "AcmeDemoBundle:Hello:embedded.html.twig" %}
     {% endblock %}
 
 Incluir otros controladores
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Y si la necesidad es incluir el resultado de otro controlador dentro de la 
-plantilla? Esto es muy útil cuando trabajamos con Ajax o cuando el template 
-incluido necesita algunas variables que no existen en la plantilla principal.
+plantilla? Esto es muy útil cuando trabajamos con Ajax o cuando la plantilla 
+incluida necesita algunas variables que no existen en la plantilla principal.
 
-Si creas una acción con nombre ``fancy``, y quieres utilizarlo dentro de la 
-plantilla ``index``, puedes usar la etiqueta ``render``:
+Supongamos que hemos creado una acción con nombre ``fancy``, y quieres utilizarlo dentro de la 
+plantilla ``index``, para esto, puedes usar la etiqueta ``render``:
 
 .. code-block:: jinja
 
-    {# src/Sensio/HelloBundle/Resources/views/Hello/index.html.twig #}
-    {% render "HelloBundle:Hello:fancy" with { 'name': name, 'color': 'green' } %}
+    {# src/Acme/DemoBundle/Resources/views/Hello/index.html.twig #}
+    {% render "AcmeDemoBundle:Demo:fancy" with { 'name': name, 'color': 'green' } %}
 
-La cadena ``HelloBundle:Hello:fancy`` hace referencia a la acción ``fancy``
-del controlador ``Hello``, y simulamos el envío de los parámetros por medio
-del argumento::
+La cadena ``AcmeDemoBundle:Demo:fancy`` hace referencia a la acción ``fancy``
+del controlador ``Demo``. Los argumentos (``name`` and ``color``) actúan como variables
+enviadas por la petición (como si fuera que ``fancyAction`` fuera manejado como una nueva 
+petición) y de esta manera estarán habilitadas para el controlador::
 
-    // src/Sensio/HelloBundle/Controller/HelloController.php
+    // src/Acme/DemoBundle/Controller/DemoController.php
 
-    class HelloController extends Controller
+    class DemoController extends Controller
     {
         public function fancyAction($name, $color)
         {
             // create some object, based on the $color variable
             $object = ...;
 
-            return $this->render('HelloBundle:Hello:fancy.html.twig', array('name' => $name, 'object' => $object));
+            return $this->render('AcmeDemoBundle:Demo:fancy.html.twig', array('name' => $name, 'object' => $object));
         }
 
         // ...
@@ -220,25 +235,27 @@ la función ``path`` sabe como generar URLs de acuerdo a la configuración de
 ruteo, haciendo que todas las URLs puedan ser fácilmente actualizadas con solo
 modificar la configuración:
 
-.. code-block:: jinja
+.. code-block:: html+jinja
 
-    <a href="{{ path('hello', { 'name': 'Thomas' }) }}">Greet Thomas!</a>
+    <a href="{{ path('_demo_hello', { 'name': 'Thomas' }) }}">Greet Thomas!</a>
 
 La función ``path`` toma el nombre de la ruta y un array de parámetros 
-como argumentos. (---The route name is the main key under which routes are referenced
-and the parameters are the values of the placeholders defined in the route
-pattern---)
+como argumentos.El nombre de la ruta es la clave principal bajo las rutas que están referenciadas y los parámetros son los valores de los placeholders definidos en los patrones de las rutas::
 
-.. code-block:: yaml
-
-    # src/Sensio/HelloBundle/Resources/config/routing.yml
-    hello: # The route name
-        pattern:  /hello/{name}
-        defaults: { _controller: HelloBundle:Hello:index }
+    // src/Acme/DemoBundle/Controller/DemoController.php
+    /**
+     * @extra:Route("/hello/{name}", name="_demo_hello")
+     * @extra:Template()
+     */
+    public function helloAction($name)
+    {
+        return array('name' => $name);
+    }
 
 .. tip::
 
-    La función ``url`` genera URLs *absolutas* {{ url('hello', { 'name': 'Thomas' }) }}
+    La función ``url`` genera URLs *absolutas* ``{{ url('_demo_hello', {
+    'name': 'Thomas' }) }}``
 
 Incluir Recursos: imágenes, JavaScripts, y hojas de estilo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
