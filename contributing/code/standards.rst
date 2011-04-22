@@ -1,7 +1,7 @@
-Estándares de Codificación
-==========================
+Estándar de Codificación
+========================
 
-Cuando contribuyes código a Symfony2, debes seguir sus estandares de
+Cuando contribuyes código a Symfony2, debes seguir su estándar de
 codificación. Para hacer corta la historia, esta es la regla de oro:
 *Imita el código existente de Symfony2*.
 
