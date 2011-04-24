@@ -111,9 +111,9 @@ contributing/code/patches.rst                    sergiovier        14/04/2011   
 contributing/code/security.rst                   sergiovier        16/04/2011          100%
 contributing/code/standards.rst                  sergiovier        18/04/2011          100%
 contributing/code/tests.rst
-contributing/community/index.rst
-contributing/community/irc.rst
-contributing/community/other.rst
+contributing/community/index.rst                 sergiovier        29/04/2011          0%
+contributing/community/irc.rst                   sergiovier        29/04/2011          0%
+contributing/community/other.rst                 sergiovier        29/04/2011          0%
 contributing/documentation/format.rst
 contributing/documentation/index.rst
 contributing/documentation/license.rst
