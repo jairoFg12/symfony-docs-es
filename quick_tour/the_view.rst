@@ -131,8 +131,8 @@ Demos una mirada a nuestro layout ``layout.html.twig``:
     </div>
 
 Las etiquetas {% block %} definen bloques para que los hijos lo puedan sobrescribir. Lo 
-único que hace esta etiqueta es decirle al motor de plantillas que un 
-hijo puede sobrescribir esa sección. La plantilla ``hello.html.twig`` sobrescribe al
+único que hace esta etiqueta es decirle al motor de plantillas que una 
+plantilla hija puede sobrescribir esa sección. La plantilla ``hello.html.twig`` sobrescribe al
 bloque ``content``.
 
 Usar Etiquetas, Filtros y Funciones
