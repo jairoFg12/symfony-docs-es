@@ -1,5 +1,5 @@
-Quick Tour
-==========
+Guía de inicio rápido
+=====================
 
 .. toctree::
    :maxdepth: 1

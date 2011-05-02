@@ -238,25 +238,22 @@ En este ejemplo, el recurso será almacenado en cache por un día. Puedes
 usar también la validación en vez de la expiración o una combinación de ambas
 si esto se ajusta más a tus necesidades. 
 
-
-Resource caching is managed by the Symfony2 built-in reverse. But as caching
-is only managed by regular HTTP cache headers, you can also replace it with
-Varnish or Squid and easily scale your application.
+El recurso de cache es manejado por un proxy inverso integrado con Symfony2.
+Sin embargo debido a que ese cache se maneja usando las cabeceras HTTP, puedes
+reemplazarlo con Varnish o Squid y escalar más facilmente tu aplicación.   
 
 .. note::
 
-    But what if you cannot cache whole pages? Symfony2 still has the solution
-    via Edge Side Includes (ESI) that are supported natively. Learn more by
-    reading the "`HTTP Cache`_" chapter of the book.
+    Y si no quieres almacenar en cache todas las páginas ?. Symfony2 provee
+    una solución a través ESI (Edge Side Includes) que esta soportada nativamente. 
+    Para aprender más consulta el capítulo ":doc:`/book/http_cache`" del libro. 
 
-Final Thoughts
+Conclusiones
 --------------
 
-That's all there is to it, and I'm not even sure we have spent the allocated
-10 minutes. We briefly introduced bundles in the first part; and all the
-features we've learned about until now are part of the core framework bundle.
-But thanks to bundles, everything can be extended or replaced in Symfony2.
-That's the topic of the next part of this tutorial.
-
-.. _Security:   http://symfony.com/doc/2.0/book/security/index.html
-.. _HTTP Cache: http://symfony.com/doc/2.0/book/http_cache.html
+Esto es todo lo que hay que hacer y no estoy seguro de haber gastado los 
+10 minutos. Hemos realizado una breve introducción a los bundles en la primera
+parte; y todas las características que hemos aprendido hasta ahora hacen
+parte del bundle core del framework. Gracias a los bundles, todo puede ser
+extendido o reemplazado en Symfony2. Este será el tema de la siguiente
+parte de este tutorial. 

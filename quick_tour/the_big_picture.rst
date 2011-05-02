@@ -24,7 +24,7 @@ web (como Apache) con PHP 5.3.2 o superior.
 ¿ Listo ? Empecemos por descargar la "`edición estándar de Symfony2`_", una
 :term:`distribución` de Symfony que se encuentra preconfigurada para la mayoría
 de casos y que también contiene código de ejemplo que demuestra cómo usar 
-Symfony2 (puedes obtener un paquete que incluya los *vendors* para empezar 
+Symfony2 (obten el paquete que incluya los *vendors* para empezar 
 aún más rápido).  
 
 Después de extraer el paquete bajo el directorio raíz del servidor web, 
