@@ -23,7 +23,7 @@ Dependencias (opcional)
 Para ejecutar la suite completa de pruebas, incluyendo pruebas que tengan
 dependencias externas, Symfony2 necesita ser capaz de cargarlos en forma
 automática. Por defecto, las dependencias son cargadas desde el directorio
-`vendor/` del directorio raiz del proyecto (vea `autoload.php.dist`).
+`vendor/` del directorio raíz del proyecto (vea `autoload.php.dist`).
 
 La suite de pruebas necesita las siguientes librerías de terceros:
 
@@ -55,7 +55,7 @@ Ejecutar
 
 Primero, actualiza las librerías de terceros (ver arriba).
 
-Entonces, ejecuta la suite de pruebas desde el directorio raiz de Symfony2
+Entonces, ejecuta la suite de pruebas desde el directorio raíz de Symfony2
 con el siguiente comando:
 
 .. code-block:: bash
@@ -70,7 +70,7 @@ y si las pruebas estan rotas debido a las modificaciones que has realizado.
     Ejecuta la suite de pruebas antes de aplicar tus modificaciones, para
     chequear que ellas funcionan bien en tu configuración inicial.
 
-Covertura de Código
+Cobertura de Código
 -------------------
 
 Si agregas una nueva característica, tienes que verificar la cobertura de
