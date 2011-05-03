@@ -1,13 +1,14 @@
-Running Symfony2 Tests
-======================
+Ejecutar Pruebas en Symfony2
+============================
 
-Before submitting a :doc:`patch <patches>` for inclusion, you need to run the
-Symfony2 test suite to check that you have not broken anything.
+Antes de enviar un :doc:`patch <parche>` para su inclusión, necesitas ejecutar
+la suite de pruebas de Symfony2 para verificar que no has roto nada.
 
 PHPUnit
 -------
 
-To run the Symfony2 test suite, `install`_ PHPUnit 3.5.0 or later first:
+Para ejecutar la suite de pruebas de Symfony2, primero debes `instalar`_
+PHPUnit 3.5.0 o superior:
 
 .. code-block:: bash
 
@@ -16,15 +17,15 @@ To run the Symfony2 test suite, `install`_ PHPUnit 3.5.0 or later first:
     $ pear channel-discover pear.symfony-project.com
     $ pear install phpunit/PHPUnit
 
-Dependencies (optional)
+Dependencias (opcional)
 -----------------------
 
-To run the entire test suite, including tests that depend on external
-dependencies, Symfony2 needs to be able to autoload them. By default, they are
-autoloaded from `vendor/` under the main root directory (see
-`autoload.php.dist`).
+Para ejecutar la suite completa de pruebas, incluyendo pruebas que tengan
+dependencias externas, Symfony2 necesita ser capaz de cargarlos en forma
+automática. Por defecto, las dependencias son cargadas desde el directorio
+`vendor/` del directorio raíz del proyecto (vea `autoload.php.dist`).
 
-The test suite need the following third-party libraries:
+La suite de pruebas necesita las siguientes librerías de terceros:
 
 * Doctrine
 * Doctrine Migrations
@@ -32,59 +33,59 @@ The test suite need the following third-party libraries:
 * Twig
 * Zend Framework
 
-To install them all, run the `install_vendors.sh` script:
+Para poder instalarlas, ejecuta el script `install_vendors.sh`:
 
 .. code-block:: bash
 
     $ sh install_vendors.sh
 
-.. note::
+.. note:: 
 
-    Note that the script takes some time to finish.
+    Ten en cuenta que el script puede demorarse en terminar.
 
-After installation, you can update the vendors anytime with the
-`update_vendors.sh` script:
+Después de la instalación, puedes actualizar en cualquier momento las librerías
+de terceros con el script `update_vendors.sh`:
 
 .. code-block:: bash
 
     $ sh update_vendors.sh
 
-Running
--------
+Ejecutar
+--------
 
-First, update the vendors (see above).
+Primero, actualiza las librerías de terceros (ver arriba).
 
-Then, run the test suite from the Symfony2 root directory with the following
-command:
+Entonces, ejecuta la suite de pruebas desde el directorio raíz de Symfony2
+con el siguiente comando:
 
 .. code-block:: bash
 
     $ phpunit
 
-The output should display `OK`. If not, you need to figure out what's going on
-and if the tests are broken because of your modifications.
+La salida debería mostrar un `OK`. Si no, necesitas averigurar que está pasando
+y si las pruebas estan rotas debido a las modificaciones que has realizado.
 
 .. tip::
 
-    Run the test suite before applying your modifications to check that they
-    run fine on your configuration.
+    Ejecuta la suite de pruebas antes de aplicar tus modificaciones, para
+    chequear que ellas funcionan bien en tu configuración inicial.
 
-Code Coverage
--------------
+Cobertura de Código
+-------------------
 
-If you add a new feature, you also need to check the code coverage by using
-the `coverage-html` option:
+Si agregas una nueva característica, tienes que verificar la cobertura de
+código usando la opción `coverage-html`:
 
 .. code-block:: bash
 
     $ phpunit --coverage-html=cov/
 
-Check the code coverage by opening the generated `cov/index.html` page in a
-browser.
+Verifica la cobertura de código abriendo en un navegador el archivo
+`cov/index.html` generado.
 
 .. tip::
 
-    The code coverage only works if you have XDebug enabled and all
-    dependencies installed.
+    La cobertura de código funciona únicamente si tienes XDebug habilitado
+    y todas las dependencias instaladas.
 
-.. _install: http://www.phpunit.de/manual/current/en/installation.html
+.. _instalar: http://www.phpunit.de/manual/current/en/installation.html
