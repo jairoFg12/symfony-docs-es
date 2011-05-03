@@ -2,7 +2,7 @@
    single: Emails; Gmail
 
 ¿Cómo utilizar Gmail para enviar Emails?
-===============================
+========================================
 
 Durante el desarrollo, utilizar Gmail para enviar correos electrónicos, es más
 fácil y práctico que utilizar un servidor SMTP. Con el ``bundle`` Swiftmailer esto
