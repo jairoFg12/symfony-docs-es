@@ -42,19 +42,39 @@ que existe una relacion principal:
 Para muchas relaciones donde la convención de nombres no aplica, los siguientes
 métodos deben ser utlizados (donde ``XXX`` es el nombre de la cosa relacionada):
 
-================== =================
-Relación Principal  Otras Relaciones
-================== =================
-``get()``          ``getXXX()``
-``set()``          ``setXXX()``
-``has()``          ``hasXXX()``
-``all()``          ``getXXXs()``
-``replace()``      ``setXXXs()``
-``remove()``       ``removeXXX()``
-``clear()``        ``clearXXX()``
-``isEmpty()``      ``isEmptyXXX()``
-``add()``          ``addXXX()``
-``register()``     ``registerXXX()``
-``count()``        ``countXXX()``
-``keys()``         n/a
-================== =================
++---------------------+-------------------+
+| Relación Principal  | Otras Relaciones  |
++=====================+===================+
+| ``get()``           | ``getXXX()``      |
++---------------------+-------------------+
+| ``set()``           | ``setXXX()``      |
++---------------------+-------------------+
+| n/a                 | ``replaceXXX()``  |
++---------------------+-------------------+
+| ``has()``           | ``hasXXX()``      |
++---------------------+-------------------+
+| ``all()``           | ``getXXXs()``     |
++---------------------+-------------------+
+| ``replace()``       | ``replaceXXXs()`` |
++---------------------+-------------------+
+| ``remove()``        | ``removeXXX()``   |
++---------------------+-------------------+
+| ``clear()``         | ``clearXXX()``    |
++---------------------+-------------------+
+| ``isEmpty()``       | ``isEmptyXXX()``  |
++---------------------+-------------------+
+| ``add()``           | ``addXXX()``      |
++---------------------+-------------------+
+| ``register()``      | ``registerXXX()`` |
++---------------------+-------------------+
+| ``count()``         | ``countXXX()``    |
++---------------------+-------------------+
+| ``keys()``          | n/a               |
++---------------------+-------------------+
+
+.. note::
+
+    Mientras "setXXX" y "replaceXXX" son muy similares, existe una diferencia
+    notable: "setXXX" puede reemplazar o agregar nuevos elementos a la
+    relación; por otro lado, "replaceXXX" está específicamente prohibido para
+    agregar nuevos elementos y se debe lanzar una excepción en estos casos.
