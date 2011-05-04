@@ -1,15 +1,15 @@
-Other Resources
-===============
+Otros Recursos
+==============
 
-In order to follow what is happening in the community you might find helpful
-these additional resources:
+Con el fin de seguir lo que esta pasando en la comunidad, puedes encontrar
+de gran utilidad los siguientes recursos:
 
- * List of open `pull requests`_
- * List of recent `commits`_
- * List of open `bugs`_
- * List of open source `bundles`_
+ * Lista de `pull requests`_ abiertos
+ * Lista de `commits`_ recientes
+ * Lista de `mejoras y bugs`_ abiertos
+ * Lista de `bundles`_ open source
 
-.. _pull requests: https://github.com/fabpot/symfony/pulls
-.. _commits:       https://github.com/fabpot/symfony/commits/master
-.. _bugs:          http://trac.symfony-project.org/report/24
-.. _bundles:       http://symfony2bundles.org/
+.. _pull requests:  https://github.com/symfony/symfony/pulls
+.. _commits:        https://github.com/symfony/symfony/commits/master
+.. _mejoras y bugs: https://github.com/symfony/symfony/issues
+.. _bundles:        http://symfony2bundles.org/
