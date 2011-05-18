@@ -1,20 +1,21 @@
 .. index::
    single: Emails; Gmail
 
-How to use Gmail to send Emails
-===============================
+¿Cómo utilizar Gmail para enviar Emails?
+========================================
 
-During development, instead of using a regular SMTP server to send emails, you
-might find using Gmail easier and more practical. The Swiftmailer bundle makes
-it really easy.
+Durante el desarrollo, utilizar Gmail para enviar correos electrónicos, es más
+fácil y práctico que utilizar un servidor SMTP. Con el ``bundle`` Swiftmailer esto
+es realmente fácil.
 
 .. tip::
 
-    Instead of using your regular Gmail account, it's of course recommended
-    that you create a special account.
+    En vez de usar tu cuenta habitual de Gmail, se recomienda crear una cuenta
+    especial para este propósito.
 
-In the development configuration file, change the ``transport`` setting to
-``gmail`` and set the ``username`` and ``password`` to the Google credentials:
+En el archivo de configuracion de desarrollo, asigna el valor de ``transport`` 
+como ``gmail`` y escribe las credenciales ``username`` y ``password`` de 
+tus cuenta de Google:
 
 .. configuration-block::
 
@@ -23,8 +24,8 @@ In the development configuration file, change the ``transport`` setting to
         # app/config/config_dev.yml
         swiftmailer:
             transport: gmail
-            username:  your_gmail_username
-            password:  your_gmail_password
+            username:  tu_usuario_de_gmail
+            password:  tu_contrasena_de_gmail
 
     .. code-block:: xml
 
@@ -37,21 +38,22 @@ In the development configuration file, change the ``transport`` setting to
 
         <swiftmailer:config
             transport="gmail"
-            username="your_gmail_username"
-            password="your_gmail_password" />
+            username="tu_usuario_de_gmail"
+            password="tu_contrasena_de_gmail" />
 
     .. code-block:: php
 
         // app/config/config_dev.php
         $container->loadFromExtension('swiftmailer', array(
             'transport' => "gmail",
-            'username'  => "your_gmail_username",
-            'password'  => "your_gmail_password",
+            'username'  => "tu_usuario_de_gmail",
+            'password'  => "tu_contrasena_de_gmail",
         ));
 
-You're done!
+¡Y has finalizado!
 
 .. note::
 
-    The ``gmail`` transport is simply a shortcut that uses the ``smtp`` transport
-    and sets ``encryption``, ``auth_mode`` and ``host`` to work with Gmail.
+    El transporte como ``gmail`` es simplemente un atajo que utiliza el 
+    transporte ``smtp`` y asigna los valores de ``encryption``, 
+    ``auth_mode`` y ``host`` para trabajar con Gmail
