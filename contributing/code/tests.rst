@@ -31,24 +31,19 @@ La suite de pruebas necesita las siguientes librerías de terceros:
 * Doctrine Migrations
 * Swiftmailer
 * Twig
-* Zend Framework
 
-Para poder instalarlas, ejecuta el script `install_vendors.sh`:
+Para poder instalarlas, ejecuta el script `vendors.sh`:
 
 .. code-block:: bash
 
-    $ sh install_vendors.sh
+    $ sh vendors.sh
 
 .. note:: 
 
     Ten en cuenta que el script puede demorarse en terminar.
 
 Después de la instalación, puedes actualizar en cualquier momento las librerías
-de terceros con el script `update_vendors.sh`:
-
-.. code-block:: bash
-
-    $ sh update_vendors.sh
+de terceros con el script `vendors.sh`:
 
 Ejecutar
 --------

@@ -109,7 +109,7 @@ mientras terminas tus cambios):
     $ git rebase master
 
 Cuando se ejecuta el comando `rebase`, es posible que tengas que corregir y
-combinar conflictos. `git st` indica los archivos *sin combinar*. Resuelve
+combinar conflictos. `git status` mostrará los archivos *sin combinar*. Resuelve
 todos los conflictos y continúa con el `rebase`:
 
 .. code-block:: bash

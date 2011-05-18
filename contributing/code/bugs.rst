@@ -35,4 +35,4 @@ de errores oficial y sigue algunas reglas básicas:
 .. _lista de correo de usuarios: http://groups.google.com/group/symfony-users
 .. _foro: http://forum.symfony-project.org/
 .. _canal IRC: irc://irc.freenode.net/symfony
-.. _seguidor: http://trac.symfony-project.org/
+.. _seguidor: https://github.com/symfony/symfony/issues
